@@ -4,12 +4,13 @@
     "name": "github",
     "repo": "Smuxie/cox-mill-leadership",
     "branch": "main",
-    "base_url": "https://setup-required.invalid",
+    "base_url": "https://cox-mill-leadership-auth.kylewestonsnyder.workers.dev",
     "auth_endpoint": "auth",
     "auth_methods": [
       "oauth"
     ],
-    "auth_scope": "public_repo"
+    "auth_scope": "public_repo",
+    "site_domain": "cox-mill-leadership.pages.dev"
   },
   "media_folder": "public/uploads",
   "public_folder": "/uploads",
@@ -651,5 +652,7 @@
         }
       ]
     }
-  ]
+  ],
+  "site_url": "https://cox-mill-leadership.pages.dev",
+  "display_url": "https://cox-mill-leadership.pages.dev"
 }

@@ -4,6 +4,9 @@ compatibility_date = "2026-11-04"
 workers_dev = true
 preview_urls = false
 
+# Native Workers Builds uses root auth, watches auth/**, and deploys with
+# npx --yes wrangler@4.157.0 deploy. Runtime credentials stay encrypted.
+
 # Deploy ONLY to a Cloudflare account on Workers Free. This setting does not
 # downgrade an account that already has Workers Paid. Verify in the dashboard.
 # Add GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET as encrypted Worker secrets.
