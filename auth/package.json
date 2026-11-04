@@ -1,0 +1,6 @@
+{
+  "name": "cox-mill-leadership-auth",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test auth.test.mjs" }
+}

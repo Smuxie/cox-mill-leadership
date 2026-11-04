@@ -1,0 +1,17 @@
+{
+  "name": "cox-mill-leadership",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "node scripts/prepare-cms.mjs && node scripts/validate-content.mjs && astro build && node scripts/verify-build.mjs",
+    "preview": "astro preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.mjs auth/auth.test.mjs",
+    "configure": "node scripts/configure-cms.mjs"
+  },
+  "dependencies": { "astro": "7.4.5", "@tailwindcss/vite": "4.3.4", "tailwindcss": "4.3.4" },
+  "devDependencies": { "@sveltia/cms": "0.258.1", "vite": "8.3.5" }
+}

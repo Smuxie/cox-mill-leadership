@@ -1,0 +1,17 @@
+name = "cox-mill-leadership-auth"
+main = "src/index.js"
+compatibility_date = "2026-11-04"
+workers_dev = true
+preview_urls = false
+
+# Deploy ONLY to a Cloudflare account on Workers Free. This setting does not
+# downgrade an account that already has Workers Paid. Verify in the dashboard.
+# Add GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET as encrypted Worker secrets.
+# Set ALLOWED_DOMAINS to your exact production hostname (no scheme or slash).
+# The wrapper fails closed until all three are configured.
+[vars]
+ALLOWED_DOMAINS = "setup-required.invalid"
+GITHUB_ALLOW_WORKFLOW_SCOPE = "false"
+
+[observability]
+enabled = false

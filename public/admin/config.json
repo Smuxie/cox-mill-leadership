@@ -1,0 +1,638 @@
+{
+  "load_config_file": false,
+  "backend": {
+    "name": "github",
+    "repo": "Smuxie/cox-mill-leadership",
+    "branch": "main",
+    "base_url": "https://setup-required.invalid",
+    "auth_endpoint": "auth",
+    "auth_methods": [
+      "oauth"
+    ],
+    "auth_scope": "public_repo"
+  },
+  "media_folder": "public/uploads",
+  "public_folder": "/uploads",
+  "publish_mode": "simple",
+  "media_libraries": {
+    "default": {
+      "config": {
+        "max_file_size": 2097152,
+        "slugify_filename": true,
+        "transformations": {
+          "raster_image": {
+            "format": "webp",
+            "quality": 82,
+            "width": 2048,
+            "height": 2048
+          }
+        }
+      }
+    }
+  },
+  "collections": [
+    {
+      "name": "events",
+      "label": "Events & archive",
+      "label_singular": "Event",
+      "folder": "content/events",
+      "format": "json",
+      "extension": "json",
+      "create": true,
+      "delete": true,
+      "slug": "{{slug}}",
+      "identifier_field": "title",
+      "summary": "{{title}} · {{date}} · {{status}}",
+      "sortable_fields": [
+        "date",
+        "title"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "label": "Event title",
+          "widget": "string"
+        },
+        {
+          "name": "description",
+          "label": "Description",
+          "widget": "text"
+        },
+        {
+          "name": "date",
+          "label": "Event date",
+          "widget": "datetime",
+          "type": "date",
+          "input_timezone": "America/New_York"
+        },
+        {
+          "name": "start",
+          "label": "Starts (Eastern time)",
+          "widget": "datetime",
+          "required": false,
+          "input_timezone": "America/New_York",
+          "output_utc": false,
+          "hint": "Enter Cox Mill local time (Eastern). Leave both start and end empty if the time is unknown."
+        },
+        {
+          "name": "end",
+          "label": "Ends (Eastern time)",
+          "widget": "datetime",
+          "required": false,
+          "input_timezone": "America/New_York",
+          "output_utc": false,
+          "hint": "Enter Cox Mill local time (Eastern). Leave both start and end empty if the time is unknown."
+        },
+        {
+          "name": "location",
+          "label": "Location",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "category",
+          "label": "Category",
+          "widget": "select",
+          "options": [
+            "School spirit",
+            "Service",
+            "Community",
+            "Student life",
+            "Fundraising"
+          ],
+          "default": "School spirit"
+        },
+        {
+          "name": "status",
+          "label": "Visibility",
+          "widget": "select",
+          "options": [
+            "draft",
+            "published",
+            "cancelled"
+          ],
+          "default": "draft"
+        },
+        {
+          "name": "featured",
+          "label": "Feature this event",
+          "widget": "boolean",
+          "default": false
+        },
+        {
+          "name": "cover",
+          "label": "Cover photo",
+          "widget": "image",
+          "required": false,
+          "choose_url": false,
+          "accept": "image/jpeg,image/png,image/webp",
+          "hint": "Use school-approved photos only. Images are optimized in your browser; keep each file under 2 MB."
+        },
+        {
+          "name": "coverAlt",
+          "label": "Cover photo description",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "gallery",
+          "label": "Photo gallery",
+          "widget": "list",
+          "required": false,
+          "fields": [
+            {
+              "name": "src",
+              "label": "Photo",
+              "widget": "image",
+              "required": true,
+              "choose_url": false,
+              "accept": "image/jpeg,image/png,image/webp",
+              "hint": "Use school-approved photos only. Images are optimized in your browser; keep each file under 2 MB."
+            },
+            {
+              "name": "alt",
+              "label": "Photo description",
+              "widget": "string"
+            }
+          ],
+          "default": []
+        },
+        {
+          "name": "registrationUrl",
+          "label": "School-approved registration or ticket link",
+          "widget": "string",
+          "required": false,
+          "pattern": [
+            "^(https://[^\\s]+)?$",
+            "Use a complete https:// address, or leave empty."
+          ]
+        },
+        {
+          "name": "instagramUrl",
+          "label": "Associated Instagram post",
+          "widget": "string",
+          "required": false,
+          "pattern": [
+            "^(https://(www\\.)?instagram\\.com/(p|reel|tv)/[A-Za-z0-9_-]+/?)?$",
+            "Use an Instagram post or reel URL, or leave empty."
+          ]
+        },
+        {
+          "name": "recap",
+          "label": "Recap or highlights",
+          "widget": "text",
+          "required": false
+        },
+        {
+          "name": "attendance",
+          "label": "Attendance",
+          "widget": "number",
+          "required": false,
+          "value_type": "int",
+          "min": 0
+        },
+        {
+          "name": "fundraising",
+          "label": "Funds raised (USD)",
+          "widget": "number",
+          "required": false,
+          "value_type": "float",
+          "min": 0
+        },
+        {
+          "name": "results",
+          "label": "Results",
+          "widget": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "announcements",
+      "label": "Announcements",
+      "label_singular": "Announcement",
+      "folder": "content/announcements",
+      "format": "json",
+      "extension": "json",
+      "create": true,
+      "delete": true,
+      "slug": "{{slug}}",
+      "identifier_field": "title",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Title",
+          "widget": "string"
+        },
+        {
+          "name": "body",
+          "label": "Message",
+          "widget": "text"
+        },
+        {
+          "name": "url",
+          "label": "Optional link",
+          "widget": "string",
+          "required": false,
+          "pattern": [
+            "^(|\\/(?!\\/)[^\\s]*|https://[^\\s]+)$",
+            "Use a site path such as /about/, a complete https:// address, or leave empty."
+          ]
+        },
+        {
+          "name": "expiresAt",
+          "label": "Expires (Eastern time)",
+          "widget": "datetime",
+          "required": false,
+          "input_timezone": "America/New_York",
+          "output_utc": false,
+          "hint": "Enter Cox Mill local time (Eastern), or leave empty for an announcement that does not expire."
+        },
+        {
+          "name": "featured",
+          "label": "Feature on homepage",
+          "widget": "boolean",
+          "default": true
+        },
+        {
+          "name": "status",
+          "label": "Visibility",
+          "widget": "select",
+          "options": [
+            "draft",
+            "published"
+          ],
+          "default": "draft"
+        }
+      ]
+    },
+    {
+      "name": "site",
+      "label": "Site settings",
+      "files": [
+        {
+          "name": "settings",
+          "label": "Homepage, about, contact & branding",
+          "file": "content/site.json",
+          "fields": [
+            {
+              "name": "schoolName",
+              "label": "School name",
+              "widget": "string"
+            },
+            {
+              "name": "programName",
+              "label": "Program name",
+              "widget": "string"
+            },
+            {
+              "name": "tagline",
+              "label": "Tagline",
+              "widget": "string"
+            },
+            {
+              "name": "description",
+              "label": "Site description",
+              "widget": "text"
+            },
+            {
+              "name": "instagramUrl",
+              "label": "Official leadership Instagram profile",
+              "widget": "string",
+              "required": false,
+              "pattern": [
+                "^(https://(www\\.)?instagram\\.com/[A-Za-z0-9_.]+/?)?$",
+                "Use the verified official profile URL, or leave empty."
+              ]
+            },
+            {
+              "name": "schoolUrl",
+              "label": "Official school website",
+              "widget": "string",
+              "required": true,
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Use the complete https:// address of the official school website."
+              ]
+            },
+            {
+              "name": "hero",
+              "label": "Homepage introduction",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Short line above headline",
+                  "widget": "string"
+                },
+                {
+                  "name": "headline",
+                  "label": "Headline",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "widget": "text"
+                },
+                {
+                  "name": "image",
+                  "label": "Featured photograph",
+                  "widget": "image",
+                  "required": false,
+                  "choose_url": false,
+                  "accept": "image/jpeg,image/png,image/webp",
+                  "hint": "Use school-approved photos only. Images are optimized in your browser; keep each file under 2 MB."
+                },
+                {
+                  "name": "imageAlt",
+                  "label": "Describe the photograph",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "primaryLabel",
+                  "label": "First button label",
+                  "widget": "string"
+                },
+                {
+                  "name": "primaryHref",
+                  "label": "First button destination",
+                  "widget": "string",
+                  "pattern": [
+                    "^(\\/(?!\\/)[^\\s]*|https://[^\\s]+)$",
+                    "Use a site path such as /events/ or a complete https:// address."
+                  ]
+                },
+                {
+                  "name": "secondaryLabel",
+                  "label": "Second button label",
+                  "widget": "string"
+                },
+                {
+                  "name": "secondaryHref",
+                  "label": "Second button destination",
+                  "widget": "string",
+                  "pattern": [
+                    "^(\\/(?!\\/)[^\\s]*|https://[^\\s]+)$",
+                    "Use a site path such as /events/ or a complete https:// address."
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "mission",
+              "label": "Mission",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "heading",
+                  "label": "Heading",
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "about",
+              "label": "About page",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "heading",
+                  "label": "Heading",
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Introduction",
+                  "widget": "text"
+                },
+                {
+                  "name": "body",
+                  "label": "Main text",
+                  "widget": "text"
+                },
+                {
+                  "name": "participation",
+                  "label": "How students can participate",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "contact",
+              "label": "Contact and involvement",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "intro",
+                  "label": "Introduction",
+                  "widget": "text"
+                },
+                {
+                  "name": "address",
+                  "label": "School address",
+                  "widget": "string"
+                },
+                {
+                  "name": "phone",
+                  "label": "School office phone",
+                  "widget": "string"
+                },
+                {
+                  "name": "email",
+                  "label": "School-approved contact email",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "opportunities",
+                  "label": "Opportunities",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "footerMessage",
+              "label": "Footer message",
+              "widget": "string"
+            },
+            {
+              "name": "theme",
+              "label": "Theme colors",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "navy",
+                  "label": "Dark text and background",
+                  "widget": "color"
+                },
+                {
+                  "name": "accent",
+                  "label": "Accent",
+                  "widget": "color"
+                },
+                {
+                  "name": "purple",
+                  "label": "Secondary accent",
+                  "widget": "color"
+                },
+                {
+                  "name": "background",
+                  "label": "Page background",
+                  "widget": "color"
+                }
+              ]
+            }
+          ],
+          "format": "json"
+        }
+      ]
+    },
+    {
+      "name": "instagram",
+      "label": "Instagram posts",
+      "files": [
+        {
+          "name": "posts",
+          "label": "Selected official posts",
+          "file": "content/social.json",
+          "fields": [
+            {
+              "name": "posts",
+              "label": "Instagram posts",
+              "widget": "list",
+              "required": false,
+              "fields": [
+                {
+                  "name": "url",
+                  "label": "Instagram post or reel URL",
+                  "widget": "string",
+                  "pattern": [
+                    "^https://(www\\.)?instagram\\.com/(p|reel|tv)/[A-Za-z0-9_-]+/?$",
+                    "Use a complete Instagram post or reel URL."
+                  ]
+                },
+                {
+                  "name": "caption",
+                  "label": "Short caption",
+                  "widget": "text"
+                },
+                {
+                  "name": "pinned",
+                  "label": "Pin this post first",
+                  "widget": "boolean",
+                  "default": false
+                }
+              ],
+              "default": []
+            }
+          ],
+          "format": "json"
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "label": "Quick links & forms",
+      "files": [
+        {
+          "name": "links",
+          "label": "Approved resources",
+          "file": "content/links.json",
+          "fields": [
+            {
+              "name": "links",
+              "label": "Links",
+              "widget": "list",
+              "required": false,
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Button or link label",
+                  "widget": "string"
+                },
+                {
+                  "name": "url",
+                  "label": "HTTPS destination",
+                  "widget": "string",
+                  "pattern": [
+                    "^https://[^\\s]+$",
+                    "Use a complete https:// address."
+                  ]
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "widget": "text",
+                  "required": false
+                }
+              ],
+              "default": []
+            }
+          ],
+          "format": "json"
+        }
+      ]
+    },
+    {
+      "name": "team",
+      "label": "People (permission required)",
+      "files": [
+        {
+          "name": "members",
+          "label": "Students & advisor",
+          "file": "content/team.json",
+          "fields": [
+            {
+              "name": "members",
+              "label": "People",
+              "widget": "list",
+              "required": false,
+              "fields": [
+                {
+                  "name": "name",
+                  "label": "Display name",
+                  "widget": "string"
+                },
+                {
+                  "name": "role",
+                  "label": "Role",
+                  "widget": "string"
+                },
+                {
+                  "name": "bio",
+                  "label": "Short biography",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "image",
+                  "label": "Photograph",
+                  "widget": "image",
+                  "required": false,
+                  "choose_url": false,
+                  "accept": "image/jpeg,image/png,image/webp",
+                  "hint": "Use school-approved photos only. Images are optimized in your browser; keep each file under 2 MB."
+                },
+                {
+                  "name": "imageAlt",
+                  "label": "Photograph description",
+                  "widget": "string",
+                  "required": false
+                }
+              ],
+              "default": []
+            }
+          ],
+          "format": "json"
+        }
+      ]
+    }
+  ]
+}

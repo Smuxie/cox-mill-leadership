@@ -5,8 +5,8 @@ North Carolina. Repository: [Smuxie/cox-mill-leadership](https://github.com/Smux
 Leadership Instagram, confirmed by the owner:
 [coxmill_leadership](https://www.instagram.com/coxmill_leadership/).
 
-**Current status:** the application is implemented and locally tested. GitHub
-upload, Cloudflare account configuration, real editor sign-in/publishing, and
+**Current status:** source is published in the repository linked above and the
+application is implemented and locally tested. Cloudflare account configuration, real editor sign-in/publishing, and
 production deployment are not yet verified. `/admin/` deliberately explains the
 remaining setup until the actual authentication URL is supplied. This is not a
 claim of a completed live deployment.
@@ -133,4 +133,3 @@ configured; approved post URLs and real photographs can be added in the editor.
 
 Use a free `pages.dev` address initially. Custom-domain hosting is supported;
 buying or renewing a domain can cost money and is not part of this setup.
-
