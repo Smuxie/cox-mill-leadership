@@ -7,7 +7,7 @@ development; it does not mark the production acceptance test complete.
 | --- | --- |
 | GitHub source | Published under the connected owner's `Smuxie/cox-mill-leadership` public repository |
 | Production build | `pnpm build` passed with static output |
-| Automated tests | `pnpm test`: 27 passed, 0 failed |
+| Automated tests | `pnpm test`: 28 passed, 0 failed |
 | Event logic | Exact end-time transition, date-only midnight, 23/25-hour DST days, Eastern offsets, sorting/filtering, July school-year boundary tested |
 | Content/security validation | Invalid dates, unsafe URL schemes/hosts, image traversal, required alt text, media size policy tested/validated |
 | Authenticator | 9 tests, including CSRF, exact hostname allow list, forced public-repo scope, pinned source digest, and mocked GitHub code exchange |
@@ -22,23 +22,28 @@ development; it does not mark the production acceptance test complete.
 | Public static output | All internal links, local assets, CMS lazy modules, file-size/count limits, and absence of Pages Functions/Actions verified by build script |
 | JavaScript parse checks | Site script, editor bootstrap, generated OAuth Worker parsed successfully |
 | Production AI dependencies | No runtime AI integration, AI key, scheduled AI task, or AI endpoint in authored application code |
+| Hosting | Public HTTPS Pages site returned HTTP 200 with the expected content and security headers |
+| Account cost settings | Workers Free active; no payment method on file; GitHub Actions disabled |
+| Simplified revision | Generic slogans/artwork removed; plain class description; eight current-year event records; multiple event Instagram links validated |
+| Private planning material | No archive, original planning document, private media, roster or internal operational details copied into source or public output |
 
 Screenshots of the checked homepage are supplied beside the source archive as
 `preview-desktop.jpg` and `preview-mobile.jpg`. The owner-confirmed Instagram
-profile link was added and verified in the rendered page. No post URLs or school
-photographs were supplied; no fabricated posts/photos were used for testing.
+profile was viewed in the browser and matching public post URLs were added.
+The official script generated the profile iframe in the preview, but the
+third-party iframe content did not finish rendering there. Direct links remained
+available. Visual verification of the feed in the deployed visitor browser is
+still required; a successful oEmbed response alone does not prove rendering.
 
 ## Still pending — required for launch
 
-- Inspect the real Pages Free / Workers Free account state and absence of
-  billable products; no account billing audit has been performed.
-- Create/connect the Pages project and its native Git deployment integration.
 - Register the GitHub OAuth app; store its secret in the Free Worker, set exact
   allowed hostnames, and configure the real site/authentication URLs.
 - Invite a student account, sign in as that student, save/upload/publish and
   delete approved test content, and verify matching Git commits and Pages builds.
 - Confirm an uninvited account cannot write or publish.
-- Add a real approved Instagram post and check its official embed and fallback.
+- Confirm the profile feed and selected event embeds render in the deployed
+  visitor browser; direct fallback links are already present.
 - Check actual school-approved photos, all permission/consent requirements, and
   final advisor contact details before publication.
 

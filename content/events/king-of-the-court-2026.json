@@ -1,6 +1,30 @@
 {
   "title": "King of the Court",
   "description": "A men's volleyball event at Cox Mill's main gym involving junior and senior teams, with concessions and student participation.",
-  "date": "2026-10-05", "start": "", "end": "", "location": "Cox Mill main gym", "category": "School spirit", "status": "published", "featured": true,
-  "cover": "", "coverAlt": "", "gallery": [], "registrationUrl": "", "instagramUrl": "", "recap": "", "attendance": null, "fundraising": null, "results": ""
+  "date": "2026-10-05",
+  "start": "",
+  "end": "",
+  "location": "Cox Mill main gym",
+  "category": "School spirit",
+  "status": "published",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "registrationUrl": "",
+  "instagramUrl": "",
+  "recap": "",
+  "attendance": null,
+  "fundraising": null,
+  "results": "",
+  "instagramPosts": [
+    {
+      "url": "https://www.instagram.com/reel/Dd_7IyjNV0-/",
+      "caption": "School King of the Court"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DdsSK5Yuq9T/",
+      "caption": "Junior and senior team information"
+    }
+  ]
 }

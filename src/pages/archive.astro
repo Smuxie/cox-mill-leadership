@@ -2,4 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import EventCollection from '../components/EventCollection.astro';
 ---
-<Layout title="The archive"><section class="page-intro shell"><a class="breadcrumb" href="/">Home /</a><p class="eyebrow">OUR STORY, STILL GROWING</p><h1>We were<br />there together.</h1><p>Every class adds a chapter. Revisit the events and experiences that brought our school together.</p></section><div class="shell page-content"><EventCollection mode="past" controls /><div class="crosslink"><span>The memories keep coming.</span><a href="/events/" class="text-link">See what’s next ↗</a></div></div></Layout>
+<Layout title="Past events">
+  <section class="page-intro shell"><a class="breadcrumb" href="/">Home</a><h1>Past events</h1><p>Completed leadership events, photos, and recaps.</p></section>
+  <div class="shell page-content"><EventCollection mode="past" controls /><div class="crosslink"><a href="/events/" class="text-link">View upcoming events</a></div></div>
+</Layout>

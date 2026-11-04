@@ -5,16 +5,18 @@ North Carolina. Repository: [Smuxie/cox-mill-leadership](https://github.com/Smux
 Leadership Instagram, confirmed by the owner:
 [coxmill_leadership](https://www.instagram.com/coxmill_leadership/).
 
-**Current status:** source is published in the repository linked above and the
-application is implemented and locally tested. Cloudflare account configuration, real editor sign-in/publishing, and
-production deployment are not yet verified. `/admin/` deliberately explains the
+**Current status:** the public site is deployed at
+[cox-mill-leadership.pages.dev](https://cox-mill-leadership.pages.dev).
+GitHub Actions is disabled. Cloudflare billing was inspected: Workers Free is
+active and no payment method is on file. Editor authentication and real
+save/publish testing remain pending. `/admin/` deliberately explains the
 remaining setup until the actual authentication URL is supplied. This is not a
 claim of a completed live deployment.
 
 ## What is included
 
-- Homepage with editable hero, expiring featured announcements, upcoming events,
-  recent events, Instagram section, mission, and quick links.
+- Simple homepage with the class description, an official Instagram profile
+  embed, selected posts, upcoming/past events, announcements, and school links.
 - Upcoming list and monthly calendar, category filters, chronological sorting,
   and permanent event detail URLs.
 - Archive with school-year/category filters, recaps, galleries, and optional metrics.
@@ -23,12 +25,14 @@ claim of a completed live deployment.
 - A real Sveltia CMS application at `/admin/`, JSON content in Git, image uploads,
   and a pinned self-hosted GitHub OAuth authenticator for individual student accounts.
 - Centralized colors, accessible keyboard controls, responsive navigation, and
-  reduced-motion support. Original editorial artwork stands in for unprovided photos.
+  reduced-motion support. Unprovided photographs are omitted; public Instagram
+  embeds supply event and class-activity media.
 - Deployment, student editing, ownership continuity, cost audit, and verification guides.
 
-The two supplied October 2026 activities are initial archive entries. Their times,
-photographs, recaps and statistics have not been invented. No unconfirmed future
-events are published.
+The archive includes eight completed 2026–2027 activities. Summaries use public
+event facts; private planning documents, student information, internal logistics,
+and attachments are excluded from the repository and deployed output. No
+unconfirmed future events or older-school-year folders are imported.
 
 ## Run locally
 
@@ -118,10 +122,12 @@ not a content-only role. You remain responsible for inviting replacement editors
 and owner-level account recovery. GitHub/Cloudflare ownership stays under your
 accounts, as requested.
 
-Instagram is a manual selection of official public-post embeds with direct links.
-No automatic feed, scraping, paid widget, or expiring feed token is configured.
-Embeds load only after visitor action. The owner-confirmed profile link is already
-configured; approved post URLs and real photographs can be added in the editor.
+The official Instagram profile embed displays Instagram's own profile content
+without an API token, scheduled job, AI, or paid widget. It can stay current as
+the account publishes. Visitors choose to load Instagram content. Event pages
+contain explicitly matched public post/reel embeds; new event pages are not
+automatically inferred from captions. No scraping is used. Embedding can be
+blocked by Meta settings or a visitor's browser, so direct links remain available.
 
 ## Operating guides
 

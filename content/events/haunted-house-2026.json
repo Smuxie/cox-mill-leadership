@@ -1,0 +1,34 @@
+{
+  "start": "",
+  "end": "",
+  "location": "",
+  "category": "Student life",
+  "status": "published",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "registrationUrl": "",
+  "instagramUrl": "",
+  "instagramPosts": [
+    {
+      "url": "https://www.instagram.com/reel/DfDCcO7Nw50/",
+      "caption": "Haunted House"
+    },
+    {
+      "url": "https://www.instagram.com/p/DfCpuLYFhBw/",
+      "caption": "Haunted House announcement"
+    },
+    {
+      "url": "https://www.instagram.com/p/DfDtqUBjoGK/",
+      "caption": "Leadership at Trunk or Treat"
+    }
+  ],
+  "recap": "",
+  "attendance": null,
+  "fundraising": null,
+  "results": "",
+  "title": "Haunted House & Trunk or Treat",
+  "date": "2026-10-28",
+  "description": "Leadership students organized Haunted House and participated in Trunk or Treat."
+}

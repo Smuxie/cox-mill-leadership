@@ -67,6 +67,9 @@ export function validateEvent(event, slug) {
   require(!event.cover || text(event.coverAlt), 'cover alternative text is required');
   require(safeUrl(event.registrationUrl), 'registration URL must be HTTPS or a local link');
   require(instagramUrl(event.instagramUrl, true), 'invalid Instagram post URL');
+  const posts = event.instagramPosts ?? [];
+  require(Array.isArray(posts), 'Instagram posts must be a list');
+  for (const post of Array.isArray(posts) ? posts : []) require(post && text(post.url) && instagramUrl(post.url, true) && (empty(post.caption) || typeof post.caption === 'string'), 'Instagram entries need valid public post/reel URLs and text captions');
   require(Array.isArray(event.gallery), 'gallery must be a list');
   for (const image of Array.isArray(event.gallery) ? event.gallery : []) require(image && safeImage(image.src) && Boolean(image.src) && text(image.alt), 'gallery images need valid paths and alternative text');
   for (const key of ['attendance','fundraising']) require(event[key] === null || event[key] === undefined || (typeof event[key] === 'number' && Number.isFinite(event[key]) && event[key] >= 0), `${key} must be a nonnegative number or empty`);

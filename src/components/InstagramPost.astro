@@ -1,0 +1,18 @@
+---
+const {
+  url,
+  caption = '',
+  buttonLabel = 'Load Instagram post',
+  linkLabel = 'View post on Instagram',
+  pinned = false,
+} = Astro.props;
+---
+<article class="instagram-card">
+  {pinned && <span class="meta">Pinned post</span>}
+  {caption && <p class="instagram-caption">{caption}</p>}
+  <div class="instagram-embed" data-instagram={url}>
+    <button class="button dark small" type="button" data-load-instagram>{buttonLabel}</button>
+    <p class="embed-note">Loading this content connects to Instagram. <a href="/privacy/">Privacy details</a></p>
+  </div>
+  <a class="text-link instagram-direct-link" href={url} target="_blank" rel="noopener noreferrer">{linkLabel} ↗</a>
+</article>

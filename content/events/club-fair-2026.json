@@ -1,0 +1,30 @@
+{
+  "start": "",
+  "end": "",
+  "location": "",
+  "category": "Student life",
+  "status": "published",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "registrationUrl": "",
+  "instagramUrl": "",
+  "instagramPosts": [
+    {
+      "url": "https://www.instagram.com/p/DdJcMsMOk13/",
+      "caption": "September 11 club fair"
+    },
+    {
+      "url": "https://www.instagram.com/reel/DdHZcuati1v/",
+      "caption": "Club fair announcement"
+    }
+  ],
+  "recap": "",
+  "attendance": null,
+  "fundraising": null,
+  "results": "",
+  "title": "Club Fair",
+  "date": "2026-09-11",
+  "description": "Students learned about Cox Mill clubs and ways to get involved at school."
+}

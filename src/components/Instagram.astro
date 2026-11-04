@@ -1,5 +1,16 @@
 ---
 import { site, social } from '../lib/content.mjs';
-const posts = [...social.posts].sort((a,b)=>Number(b.pinned)-Number(a.pinned));
+import InstagramPost from './InstagramPost.astro';
+const posts = social.posts.filter(post=>post.pinned);
 ---
-<section class="social-section" aria-labelledby="social-title"><div class="shell social-layout"><div><span class="eyebrow light">FROM THE FEED</span><h2 id="social-title">The moments<br />between the moments.</h2><p>School spirit doesn’t stop at the bell. Follow the people making it happen.</p>{site.instagramUrl ? <a class="button teal" href={site.instagramUrl} target="_blank" rel="noopener noreferrer">Find us on Instagram <span aria-hidden="true">↗</span></a> : <p class="social-note">Our leadership Instagram link will appear here once it’s confirmed.</p>}<a class="subtle-link" href="/privacy/">About Instagram embeds & privacy</a></div><div class="social-posts">{posts.length ? posts.map((post,index)=><article class="instagram-card"><div class="social-card-top"><span>INSTAGRAM {post.pinned ? '· PINNED' : ''}</span><span aria-hidden="true">↗</span></div><p>{post.caption || 'A moment from Cox Mill Leadership.'}</p><div class="instagram-embed" data-instagram={post.url}><button class="button dark small" type="button" data-load-instagram>Load Instagram post</button><p class="embed-note">Loads content from Instagram and shares your IP address with Meta.</p></div><a href={post.url} target="_blank" rel="noopener noreferrer">View post on Instagram ↗</a></article>) : <div class="social-placeholder"><span class="instagram-glyph" aria-hidden="true">◎</span><span class="poster-kicker">SMALL MOMENTS.</span><strong>BIG<br />CHARGER<br />ENERGY.</strong><p>Selected posts will appear here.<br />Until then, stay connected at school.</p></div>}</div></div></section>
+<section class="social-section" aria-labelledby="social-title">
+  <div class="shell">
+    <div class="section-heading">
+      <div><h2 id="social-title">Instagram</h2><p>Event announcements, photos, and updates from the leadership account.</p></div>
+      {site.instagramUrl && <a class="text-link" href={site.instagramUrl} target="_blank" rel="noopener noreferrer">@coxmill_leadership ↗</a>}
+    </div>
+    {site.instagramUrl && <div class="instagram-feed"><InstagramPost url={site.instagramUrl} caption="Latest updates from Instagram" buttonLabel="Load Instagram feed" linkLabel="Open the leadership Instagram account" /></div>}
+    {posts.length > 0 && <div class="social-posts">{posts.map(post=><InstagramPost url={post.url} caption={post.caption} pinned={post.pinned} />)}</div>}
+    {!site.instagramUrl && posts.length === 0 && <p class="notice">The leadership Instagram link will be added when confirmed.</p>}
+  </div>
+</section>

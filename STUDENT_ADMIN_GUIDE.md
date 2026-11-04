@@ -76,7 +76,7 @@ filename is used. Expired notices are automatically skipped.
 
 Open **Site settings** → **Homepage, about, contact & branding**. The introduction
 section controls the hero headline, text, photograph and buttons. Other sections
-control the mission, About page, school office details, participation text,
+control the About page, school office details, participation text,
 Instagram profile, footer and theme colors. Save your changes.
 
 Use the school office or approved advisor contact details. Do not post a student's
@@ -94,8 +94,11 @@ write a short caption. Pin the most useful posts if needed. Save.
 
 Visitors choose whether to load Instagram content. Posts may not embed when
 Instagram is blocked or a post has restrictions; visitors still have direct links.
-The feed does not automatically discover new posts. Add new approved post URLs
-when you want to feature them. No Instagram password or paid feed widget is used.
+The homepage profile embed is served by Instagram and can show the account's
+current content without updating website files. Selected post lists and event
+pages use explicit URLs: add each matching post or reel under the event's
+**Instagram posts and reels** list. New event pages are not created automatically
+from captions. No Instagram password, AI credits, or paid widget is used.
 
 ## Links, sign-up forms and people
 

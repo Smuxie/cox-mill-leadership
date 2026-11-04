@@ -2,4 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import EventCollection from '../../components/EventCollection.astro';
 ---
-<Layout title="Upcoming events"><section class="page-intro shell"><a class="breadcrumb" href="/">Home /</a><p class="eyebrow">SHOW UP. JOIN IN.</p><h1>Something to<br />look forward to.</h1><p>School events, shared experiences, and your next chance to be part of it. All dates and times are shown in Eastern Time.</p></section><div class="shell page-content"><EventCollection mode="upcoming" controls /><div class="crosslink"><span>Looking for a moment that already happened?</span><a href="/archive/" class="text-link">Explore past events ↗</a></div></div></Layout>
+<Layout title="Upcoming events">
+  <section class="page-intro shell"><a class="breadcrumb" href="/">Home</a><h1>Upcoming events</h1><p>School spirit events, fundraisers, and other leadership activities. All dates and times are shown in Eastern Time.</p></section>
+  <div class="shell page-content"><EventCollection mode="upcoming" controls /><div class="crosslink"><a href="/archive/" class="text-link">View past events</a></div></div>
+</Layout>

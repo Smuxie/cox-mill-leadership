@@ -3,15 +3,12 @@ import { eventStart, eventEnd, formatDate, formatTime, schoolYear } from '../lib
 const { event } = Astro.props;
 ---
 <article class="event-card" data-event data-slug={event.slug} data-date={event.date} data-start={eventStart(event)} data-end={eventEnd(event)} data-category={event.category} data-year={schoolYear(event.date)} data-title={event.title}>
-  <a class:list={['event-art', event.slug.includes('court') ? 'court' : 'spirit']} href={`/events/${event.slug}/`} tabindex="-1" aria-hidden="true">
-    {event.cover ? <img src={event.cover} alt="" loading="lazy" width="720" height="480" /> : <><span class="art-grid"></span><span class="art-word">{event.slug.includes('court') ? 'GAME\nON.' : 'ALL\nIN.'}</span><span class="art-label">Event artwork · Photo coming soon</span><span class="art-arrow">↗</span></>}
-    <span class="category-chip">{event.category}</span>
-  </a>
+  {event.cover && <a class="event-cover" href={`/events/${event.slug}/`} tabindex="-1" aria-hidden="true"><img src={event.cover} alt="" loading="lazy" width="720" height="480" /></a>}
   <div class="card-body">
-    <p class="meta"><time datetime={event.date}>{formatDate(event.date,{month:'short'})}</time>{event.featured && <span class="featured-label">Featured</span>}{event.status === 'cancelled' && <span class="cancelled">Cancelled</span>}</p>
-    <h3><a href={`/events/${event.slug}/`}>{event.title}<span aria-hidden="true">↗</span></a></h3>
+    <p class="meta"><time datetime={event.date}>{formatDate(event.date,{month:'short'})}</time><span>{event.category}</span>{event.featured && <span class="featured-label">Featured</span>}{event.status === 'cancelled' && <span class="cancelled">Cancelled</span>}</p>
+    <h3><a href={`/events/${event.slug}/`}>{event.title}</a></h3>
     <p>{event.description}</p>
-    <p class="card-time">{event.start ? `${formatTime(event.start)} – ${formatTime(event.end)}` : 'Time not provided'}</p>
-    <span class="card-location">{event.location || 'Location to be confirmed'}</span>
+    {event.start && <p class="card-time">{formatTime(event.start)} – {formatTime(event.end)}</p>}
+    {event.location && <span class="card-location">{event.location}</span>}
   </div>
 </article>

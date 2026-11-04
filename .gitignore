@@ -11,3 +11,6 @@ public/admin/cms.js.LICENSE.txt
 public/admin/chunks/
 public/admin/assets/
 test-results/
+private/
+planning/
+*.zip

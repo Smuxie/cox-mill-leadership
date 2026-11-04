@@ -13,12 +13,13 @@ const theme = record(site.theme);
 for (const key of ['navy','accent','purple','background']) assert(typeof theme[key] === 'string' && /^#[\da-f]{6}$/i.test(theme[key]), `theme.${key} needs a six-digit hex color`);
 assert(safeUrl(site.schoolUrl, { optional:false, internal:false }), 'site.schoolUrl needs an HTTPS URL');
 assert(instagramUrl(site.instagramUrl), 'Invalid Instagram profile URL');
+assert(instagramUrl(record(site.about).instagramUrl, true), 'Invalid About page Instagram post URL');
 const hero = record(site.hero);
 for (const key of ['eyebrow','headline','description','primaryLabel','secondaryLabel']) assert(text(hero[key]), `hero.${key} is required`);
 assert(safeImage(hero.image), 'Hero image must be an uploaded image');
 assert(!hero.image || text(hero.imageAlt), 'Hero image needs alternative text');
 for (const key of ['primaryHref','secondaryHref']) assert(safeUrl(hero[key], { optional:false }), `Invalid hero.${key}`);
-for (const [section, keys] of Object.entries({ mission: ['heading','description'], about: ['heading','intro','body','participation'], contact: ['intro','address','phone','opportunities'] })) {
+for (const [section, keys] of Object.entries({ about: ['heading','intro','body','participation'], contact: ['intro','address','phone','opportunities'] })) {
   const fields = record(site[section]);
   for (const key of keys) assert(text(fields[key]), `${section}.${key} is required`);
 }

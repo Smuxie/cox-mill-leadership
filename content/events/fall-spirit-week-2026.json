@@ -1,6 +1,30 @@
 {
+  "start": "",
+  "end": "",
+  "location": "Cox Mill High School",
+  "category": "School spirit",
+  "status": "published",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "registrationUrl": "",
+  "instagramUrl": "",
+  "instagramPosts": [
+    {
+      "url": "https://www.instagram.com/p/De9tPguFqM4/",
+      "caption": "Spirit Week: pajama day"
+    },
+    {
+      "url": "https://www.instagram.com/p/De9tBGLNz4F/",
+      "caption": "Fall pep rally"
+    }
+  ],
+  "recap": "",
+  "attendance": null,
+  "fundraising": null,
+  "results": "",
   "title": "Fall Spirit Week & Pep Rally",
-  "description": "A school-wide spirit week and pep rally featuring fall athletes, student competitions, and school spirit activities.",
-  "date": "2026-10-30", "start": "", "end": "", "location": "Cox Mill High School", "category": "School spirit", "status": "published", "featured": true,
-  "cover": "", "coverAlt": "", "gallery": [], "registrationUrl": "", "instagramUrl": "", "recap": "", "attendance": null, "fundraising": null, "results": ""
+  "date": "2026-10-30",
+  "description": "Fall Spirit Week ran October 26–30 and ended with a pep rally on October 30."
 }

@@ -1,39 +1,36 @@
 {
   "schoolName": "Cox Mill High School",
   "programName": "Leadership",
-  "tagline": "Chargers, making a difference.",
-  "description": "School spirit. Shared purpose. A community built by students at Cox Mill High School in Concord, North Carolina.",
+  "tagline": "Student organization and leadership class",
+  "description": "Cox Mill Leadership is a student organization and class that hosts school spirit events and fundraisers while teaching students leadership, communication, and problem-solving skills.",
   "instagramUrl": "https://www.instagram.com/coxmill_leadership/",
   "schoolUrl": "https://cmhs.cabarrus.k12.nc.us/",
   "hero": {
     "eyebrow": "Cox Mill High School · Concord, NC",
-    "headline": "Good things happen when we lead together.",
-    "description": "The people, moments, and ideas bringing our school together. This is Cox Mill Leadership.",
+    "headline": "Cox Mill Leadership",
+    "description": "Cox Mill Leadership is a student organization and class that hosts school spirit events and fundraisers while teaching students leadership, communication, and problem-solving skills.",
     "image": "",
     "imageAlt": "",
     "primaryLabel": "Upcoming events",
     "primaryHref": "/events/",
-    "secondaryLabel": "Explore leadership",
+    "secondaryLabel": "About the class",
     "secondaryHref": "/about/"
   },
-  "mission": {
-    "heading": "A little initiative. A lasting impact.",
-    "description": "We bring students together through school spirit, thoughtful events, and service. Leadership is about showing up, listening, and making Cox Mill a place where everyone can belong."
-  },
   "about": {
-    "heading": "Leadership starts with us.",
-    "intro": "A class with a purpose: bringing our school community together.",
-    "body": "Cox Mill Leadership is a place to turn ideas into action. Students help plan experiences, celebrate school spirit, and create opportunities to serve the community.\n\nFrom the first planning conversation to the final cleanup, leadership means collaboration, responsibility, and care for the people around us.",
-    "participation": "Bring your ideas, join school activities, and look for opportunities shared through school-approved channels. Ask the leadership advisor at school about current ways to participate."
+    "heading": "About Cox Mill Leadership",
+    "intro": "Cox Mill Leadership is a student organization and class that hosts school spirit events and fundraisers while teaching students leadership, communication, and problem-solving skills.",
+    "body": "Students organize activities for the school throughout the year. The class gives students experience planning events, working in committees, communicating, and solving problems.",
+    "participation": "Ask the leadership advisor at school about joining the class or helping with an event. School-approved sign-up forms and volunteer opportunities will be posted when available.",
+    "instagramUrl": "https://www.instagram.com/p/DfDtqUBjoGK/"
   },
   "contact": {
-    "intro": "Have an idea for our school? Want to take part? Start with the school office or an approved opportunity below.",
+    "intro": "Contact the school office to reach the leadership advisor, or use a school-approved sign-up link below.",
     "address": "1355 Cox Mill Road, Concord, NC 28027",
     "phone": "704-260-6600",
     "email": "",
     "opportunities": "Volunteer opportunities and school-approved sign-up forms will be shared here when available. You can also ask the leadership advisor at school."
   },
-  "footerMessage": "Made for the moments that bring us together.",
+  "footerMessage": "Cox Mill High School · Concord, North Carolina",
   "theme": {
     "navy": "#171329",
     "accent": "#74ddd4",

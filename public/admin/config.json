@@ -178,6 +178,30 @@
           ]
         },
         {
+          "name": "instagramPosts",
+          "label": "Instagram posts and reels",
+          "widget": "list",
+          "required": false,
+          "default": [],
+          "fields": [
+            {
+              "name": "url",
+              "label": "Public Instagram post or reel URL",
+              "widget": "string",
+              "pattern": [
+                "^https://(www\\.)?instagram\\.com/(p|reel|tv)/[A-Za-z0-9_-]+/?$",
+                "Use a complete Instagram post or reel URL."
+              ]
+            },
+            {
+              "name": "caption",
+              "label": "Short label",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
           "name": "recap",
           "label": "Recap or highlights",
           "widget": "text",
@@ -381,23 +405,6 @@
               ]
             },
             {
-              "name": "mission",
-              "label": "Mission",
-              "widget": "object",
-              "fields": [
-                {
-                  "name": "heading",
-                  "label": "Heading",
-                  "widget": "string"
-                },
-                {
-                  "name": "description",
-                  "label": "Description",
-                  "widget": "text"
-                }
-              ]
-            },
-            {
               "name": "about",
               "label": "About page",
               "widget": "object",
@@ -421,6 +428,16 @@
                   "name": "participation",
                   "label": "How students can participate",
                   "widget": "text"
+                },
+                {
+                  "name": "instagramUrl",
+                  "label": "Class activity Instagram post",
+                  "widget": "string",
+                  "required": false,
+                  "pattern": [
+                    "^(https://(www\\.)?instagram\\.com/(p|reel|tv)/[A-Za-z0-9_-]+/?)?$",
+                    "Use a complete Instagram post or reel URL, or leave empty."
+                  ]
                 }
               ]
             },

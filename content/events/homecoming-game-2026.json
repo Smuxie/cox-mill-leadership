@@ -1,0 +1,26 @@
+{
+  "start": "",
+  "end": "",
+  "location": "",
+  "category": "School spirit",
+  "status": "published",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "registrationUrl": "",
+  "instagramUrl": "",
+  "instagramPosts": [
+    {
+      "url": "https://www.instagram.com/p/DdKFoejGPtf/",
+      "caption": "Homecoming court information"
+    }
+  ],
+  "recap": "",
+  "attendance": null,
+  "fundraising": null,
+  "results": "",
+  "title": "Homecoming Game",
+  "date": "2026-10-16",
+  "description": "The homecoming football game brought students together for a night of school spirit."
+}

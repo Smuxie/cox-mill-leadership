@@ -1,8 +1,31 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import InstagramPost from '../../components/InstagramPost.astro';
 import { events } from '../../lib/content.mjs';
 import { formatDate, formatTime, localDate, eventEnd, schoolYear } from '../../lib/events.mjs';
 export function getStaticPaths() { return events.map(event => ({ params: {slug:event.slug}, props:{event} })); }
 const { event } = Astro.props;
+const instagramPosts = Array.isArray(event.instagramPosts) && event.instagramPosts.length
+  ? event.instagramPosts
+  : event.instagramUrl ? [{ url: event.instagramUrl, caption: '' }] : [];
 ---
-<Layout title={event.title} description={event.description}><article class="shell event-detail"><a class="breadcrumb" href="/events/">← All events</a><div class="detail-top"><div><span class="eyebrow">{event.category} · {schoolYear(event.date)}</span><h1>{event.title}</h1><p class="detail-description">{event.description}</p></div><aside class="event-info"><span class="event-state" data-event-state data-end={eventEnd(event)}>{event.status==='cancelled'?'Cancelled':'Event'}</span><dl><dt>Date</dt><dd><time datetime={event.date}>{formatDate(event.date)}</time></dd><dt>Time</dt><dd>{event.start ? <>{formatTime(event.start)} – {formatTime(event.end)}{localDate(Date.parse(event.end))!==localDate(Date.parse(event.start))&&<span> · Ends {formatDate(localDate(Date.parse(event.end)))}</span>}</> : 'Time not provided'}</dd><dt>Location</dt><dd>{event.location || "Location to be confirmed"}</dd></dl>{event.registrationUrl&&event.status!=='cancelled'&&<a class="button dark" href={event.registrationUrl} target="_blank" rel="noopener noreferrer">Registration / details ↗</a>}{event.instagramUrl&&<a class="text-link" href={event.instagramUrl} target="_blank" rel="noopener noreferrer">View on Instagram ↗</a>}</aside></div>{event.cover ? <img class="detail-cover" src={event.cover} alt={event.coverAlt} width="1400" height="800" /> : <div class="detail-art"><span>COX MILL LEADERSHIP</span><strong>Made of<br />shared moments.</strong><span>Event artwork · Photographs can be added by student editors.</span></div>}{event.recap&&<section class="detail-section"><p class="eyebrow">THE RECAP</p><h2>A moment to remember.</h2><p class="prose-lines">{event.recap}</p></section>}{(event.attendance!==null||event.fundraising!==null)&&<dl class="event-stats">{event.attendance!==null&&<div><dt>Attendance</dt><dd>{event.attendance}</dd></div>}{event.fundraising!==null&&<div><dt>Funds raised</dt><dd>{new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(event.fundraising)}</dd></div>}</dl>}{event.results&&<section class="detail-section"><h2>Event results</h2><p class="prose-lines">{event.results}</p></section>}{event.gallery.length>0&&<section class="detail-section"><h2>The photo roll.</h2><div class="photo-grid">{event.gallery.map(image=><a href={image.src} target="_blank" rel="noopener noreferrer"><img src={image.src} alt={image.alt} loading="lazy" width="900" height="650" /></a>)}</div></section>}<div class="crosslink"><a href="/archive/" class="text-link">← Explore the event archive</a><a href="/contact/" class="text-link">Be part of the next one ↗</a></div></article></Layout>
+<Layout title={event.title} description={event.description}>
+  <article class="shell event-detail">
+    <a class="breadcrumb" href="/events/">← All events</a>
+    <div class="detail-top">
+      <div><span class="eyebrow">{event.category} · {schoolYear(event.date)}</span><h1>{event.title}</h1><p class="detail-description">{event.description}</p></div>
+      <aside class="event-info">
+        <span class="event-state" data-event-state data-end={eventEnd(event)}>{event.status==='cancelled'?'Cancelled':'Event'}</span>
+        <dl><dt>Date</dt><dd><time datetime={event.date}>{formatDate(event.date)}</time></dd>{event.start&&<><dt>Time</dt><dd>{formatTime(event.start)} – {formatTime(event.end)}{localDate(Date.parse(event.end))!==localDate(Date.parse(event.start))&&<span> · Ends {formatDate(localDate(Date.parse(event.end)))}</span>}</dd></>}{event.location&&<><dt>Location</dt><dd>{event.location}</dd></>}</dl>
+        {event.registrationUrl&&event.status!=='cancelled'&&<a class="button dark" href={event.registrationUrl} target="_blank" rel="noopener noreferrer">Registration / details ↗</a>}
+      </aside>
+    </div>
+    {event.cover && <img class="detail-cover" src={event.cover} alt={event.coverAlt} width="1400" height="800" />}
+    {instagramPosts.length > 0 && <section class="detail-section"><h2>Instagram posts</h2><div class="event-instagram">{instagramPosts.map(post => <InstagramPost url={post.url} caption={post.caption || ''} />)}</div></section>}
+    {event.recap && <section class="detail-section"><h2>Event recap</h2><p class="prose-lines">{event.recap}</p></section>}
+    {(Number.isFinite(event.attendance)||Number.isFinite(event.fundraising))&&<dl class="event-stats">{Number.isFinite(event.attendance)&&<div><dt>Attendance</dt><dd>{event.attendance}</dd></div>}{Number.isFinite(event.fundraising)&&<div><dt>Funds raised</dt><dd>{new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(event.fundraising)}</dd></div>}</dl>}
+    {event.results&&<section class="detail-section"><h2>Event results</h2><p class="prose-lines">{event.results}</p></section>}
+    {event.gallery.length>0&&<section class="detail-section"><h2>Photos</h2><div class="photo-grid">{event.gallery.map(image=><a href={image.src} target="_blank" rel="noopener noreferrer"><img src={image.src} alt={image.alt} loading="lazy" width="900" height="650" /></a>)}</div></section>}
+    <div class="crosslink"><a href="/archive/" class="text-link">Past events</a><a href="/contact/" class="text-link">Get involved</a></div>
+  </article>
+</Layout>

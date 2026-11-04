@@ -1,0 +1,30 @@
+{
+  "start": "",
+  "end": "",
+  "location": "",
+  "category": "Student life",
+  "status": "published",
+  "featured": false,
+  "cover": "",
+  "coverAlt": "",
+  "gallery": [],
+  "registrationUrl": "",
+  "instagramUrl": "",
+  "instagramPosts": [
+    {
+      "url": "https://www.instagram.com/p/DeaeYEKOPsr/",
+      "caption": "Homecoming dance information"
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dd_0GQ_OpZj/",
+      "caption": "Homecoming ticket reminder"
+    }
+  ],
+  "recap": "",
+  "attendance": null,
+  "fundraising": null,
+  "results": "",
+  "title": "Homecoming Dance",
+  "date": "2026-10-17",
+  "description": "Cox Mill students celebrated homecoming at the school dance."
+}

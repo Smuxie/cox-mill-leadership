@@ -1,4 +1,4 @@
-import { localDate, eventStart, eventEnd, easternMidnight, nextDate } from '../lib/events.mjs';
+import { localDate, easternMidnight, nextDate } from '../lib/events.mjs';
 
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
@@ -84,8 +84,8 @@ document.querySelectorAll('[data-load-instagram]').forEach(button=>button.addEve
   const parent=button.closest('[data-instagram]');
   button.disabled=true;button.textContent='Loading Instagram…';
   const block=document.createElement('blockquote');block.className='instagram-media';block.setAttribute('data-instgrm-permalink',parent.dataset.instagram);block.setAttribute('data-instgrm-version','14');
-  const link=document.createElement('a');link.href=parent.dataset.instagram;link.textContent='View this post on Instagram';link.target='_blank';link.rel='noopener noreferrer';block.append(link);
+  const link=document.createElement('a');link.href=parent.dataset.instagram;link.textContent='View Instagram content';link.target='_blank';link.rel='noopener noreferrer';block.append(link);
   parent.append(block);
-  try{const instagram=await loadInstagramScript();if(!instagram?.Embeds)throw new Error('Instagram is unavailable.');instagram.Embeds.process();button.remove();parent.querySelector('.embed-note').textContent='If this post is unavailable, use the direct Instagram link below.';}
+  try{const instagram=await loadInstagramScript();if(!instagram?.Embeds)throw new Error('Instagram is unavailable.');instagram.Embeds.process();button.remove();parent.querySelector('.embed-note').textContent='If Instagram content is unavailable, use the direct link below.';}
   catch{block.remove();button.disabled=false;button.textContent='Try loading Instagram again';parent.querySelector('.embed-note').textContent='Instagram could not be loaded. The direct post link below still works.';}
 }));
