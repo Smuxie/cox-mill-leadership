@@ -10,7 +10,7 @@ preview_urls = false
 # Set ALLOWED_DOMAINS to your exact production hostname (no scheme or slash).
 # The wrapper fails closed until all three are configured.
 [vars]
-ALLOWED_DOMAINS = "setup-required.invalid"
+ALLOWED_DOMAINS = "cox-mill-leadership.pages.dev"
 GITHUB_ALLOW_WORKFLOW_SCOPE = "false"
 
 [observability]
